@@ -3,13 +3,13 @@
 location=top           
 width=1000
 # height=400
-lines=16
+lines=13
 columns=1              
 # dynamic_lines=true
 #
 # icons
 allow_images=true      
-image_size=36          
+image_size=42          
 #
 # search & UX
 matching=fuzzy
@@ -30,4 +30,4 @@ key_forward=Tab
 key_backward=Shift-ISO_Left_Tab
 #
 # # stylesheet
-style=/home/zaid/.config/wofi/style.css
+style=/home/zaid/.config/wofi/themes/tokyonight-dark.css

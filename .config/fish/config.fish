@@ -2,11 +2,11 @@ set -g fish_greeting ''
 
 if status is-interactive
     if not set -q DISPLAY; and test (tty) = /dev/tty1
-        set -x GTK_THEME Tokyonight-Dark
-        set -x ICON_THEME Tokyonight-Dark
-        set -x GTK_FONT_NAME "JetBrainsMono Nerd Font 15"
-        set -x XCURSOR_THEME Apple-X-Cursor
-        set -x XCURSOR_SIZE 24
+        # set -x GTK_THEME Tokyonight-Dark
+        # set -x ICON_THEME Tokyonight-Dark
+        # set -x GTK_FONT_NAME "JetBrainsMono Nerd Font 15"
+        # set -x XCURSOR_THEME Apple-X-Cursor
+        # set -x XCURSOR_SIZE 24
         exec sway
     end
 end
@@ -52,11 +52,16 @@ alias tl='java -jar ~/Documents/tlauncher/TLauncher.jar'
 alias ll='ls -lah'
 alias vi='nvim'
 alias vim='vim.basic'
-alias network='sudo nmtui'
+alias network='nmtui'
 alias usage='ncdu'
 alias aud='alsamixer'
 alias bt='acpi'
-alias z='zathura'
+alias digital='_JAVA_AWT_WM_NONREPARENTING=1 java -jar /home/zaid/Digital/Digital.jar'
+# run zathura with disown and shortcut word 
+function pdf
+    zathura $argv &
+    disown
+end
 
 alias ls='eza --group-directories-first --color=always --icons'
 alias ll='eza -lah --group-directories-first --color=always --icons'

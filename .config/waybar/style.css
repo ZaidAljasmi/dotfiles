@@ -1,3 +1,16 @@
+/* @import "/home/zaid/.cache/wal/colors-waybar.css"; */
+/* ------------pywl theme------- */
+/* @define-color bg @background; */
+/* @define-color fg @foreground; */
+/* @define-color red @color1; */
+/* @define-color grn @color2; */
+/* @define-color ylw @color3; */
+/* @define-color blu @color4; */
+/* @define-color mag @color5; */
+/* @define-color cyn @color6; */
+/* @define-color brblk @color8; */
+/* ------------custom theme------- */
+
 @define-color bg #1a1b26;
 @define-color fg #a9b1d6;
 @define-color blk #32344a;
@@ -14,8 +27,8 @@
   border: none;
   border-radius: 0px;
   font-family: JetBrainsMono Nerd Font;
-  font-weight: bold;
-  font-size: 19px;
+  font-weight: normal;
+  font-size: 20px;
   min-height: 0;
 
 }
@@ -246,7 +259,7 @@ window#waybar.chromium {
 }
 
 #custom-power {
-  color: #ffffff;
+  color: @fg;
   font-weight: bold;
 }
 
@@ -303,7 +316,7 @@ window#waybar.chromium {
 }
 
 #window {
-  border-bottom: 3px solid @blu;
+  /* border-bottom: 3px solid @blu; */
   /* background-color: @blu; */
   color: @fg;
   font-style: normal;

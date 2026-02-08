@@ -1,5 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export EDITOR:nvim
+SETUVAR --export --path PATH:/opt/nvim\x2dlinux\x2dx86_64/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/bin\x1e/usr/local/games\x1e/usr/games
+SETUVAR --export VISUAL:nvim
+SETUVAR --export XDG_DATA_DIRS:/usr/local/share\x3a/usr/share\x3a/opt/share
 SETUVAR __fish_initialized:3800
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:brblack

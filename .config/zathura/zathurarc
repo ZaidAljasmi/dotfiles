@@ -22,11 +22,11 @@ map p print
 
 # --- Colors ---
 
-set recolor true
+set recolor false
 
 set notification-error-bg       "#f7768e" # Dark Red
 set notification-error-fg       "#1a1b26" # Background
-set notification-warning-bg     "#e0af68" # Dark Yellow
+# set notification-warning-bg     "#e0af68" # Dark Yellow
 set notification-warning-fg     "#1a1b26" # Background
 set notification-bg             "#1a1b26" # Background
 set notification-fg             "#a9b1d6" # Foreground
@@ -35,12 +35,12 @@ set completion-bg               "#1a1b26" # Background
 set completion-fg               "#a9b1d6" # Foreground
 set completion-group-bg         "#1a1b26" # Background
 set completion-group-fg         "#a9b1d6" # Foreground
-set completion-highlight-bg     "#e0af68" # Dark Yellow
-set completion-highlight-fg     "#162320" # Background
+# set completion-highlight-bg     "#e0af68" # Dark Yellow
+# set completion-highlight-fg     "#162320" # Background
 
 set index-bg                    "#1a1b26" # Background
 set index-fg                    "#a9b1d6" # Foreground
-set index-active-bg             "#e0af68" # Dark Yellow 
+# set index-active-bg             "#e0af68" # Dark Yellow 
 set index-active-fg             "#1a1b26" # Background
 
 set inputbar-bg                 "#1a1b26" # Background
@@ -48,8 +48,8 @@ set inputbar-fg                 "#a9b1d6" # Foreground
 set statusbar-bg                "#1a1b26" # Background
 set statusbar-fg                "#a9b1d6" # Foreground
 
-set highlight-color             "#e0af68" # Dark Yellow
-set highlight-active-color      "#f7768e" # Dark Red 
+# set highlight-color             "#e0af68" # Dark Yellow
+# set highlight-active-color      "#f7768e" # Dark Red 
 
 set default-bg                  "#1a1b26" # Background
 set default-fg                  "#a9b1d6" # Foreground

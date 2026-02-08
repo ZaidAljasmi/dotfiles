@@ -6,7 +6,7 @@
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:JetBrainsMono Nerd Font Bold 12
+font pango:JetBrainsMono Nerd Font Bold 14
 
 ### Variables
 #
@@ -24,10 +24,10 @@ set $browser firefox
 set $term foot
 
 # My applications launcher
-set $wofi wofi --show drun --allow-images
+set $wofi wofi --show drun --presenter drun --fields name --matching contains --insensitive --sort-order alphabetical --allow-images --no-actions --term foot
 set $wmenu wmenu-run \
     -p "Run:" \
-    -f "JetBrainsMono Nerd Font Bold 14.3" \
+    -f "JetBrainsMono Nerd Font Bold 15.5" \
     -l 0 \
     -i \
     -N 1a1b26 \
@@ -102,8 +102,8 @@ set $wofi-powermenu ~/.config/wofi/powermenu
     bindsym $mod+Shift+q kill
 
     # Start a launcher
-    bindsym $mod+p exec $wmenu
-    bindsym $mod+shift+e exec $wmenu-powermenu
+    bindsym $mod+p exec $wofi
+    # bindsym $mod+shift+e exec $wmenu-powermenu
 
     # Switch to another language
 input "type:keyboard" {
@@ -115,9 +115,9 @@ input "type:keyboard" {
 # or use caps:escape
 
 # screenshot 
-bindsym $mod+Shift+p exec grim - | tee ~/Pictures/Screenshots/screenshot_$(date +%Y-%m-%d-%H%M%S).png | wl-copy && notify-send -t 3000 "Screenshot saved and copied to clipboard"
+bindsym $mod+Shift+p exec FILE=~/Pictures/Screenshots/screenshot_$(date '+%Y-%m-%d %I-%M-%S %p').png && grim "$FILE" && wl-copy < "$FILE" && notify-send -t 3000 -i "$FILE" "Screenshot saved to: $FILE"
 # screenshot with selection
-bindsym $mod+Shift+g exec grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/screenshot_$(date +%Y-%m-%d-%H%M%S).png | wl-copy && notify-send -t 3000 "Screenshot saved and copied to clipboard"
+bindsym $mod+Shift+g exec FILE=~/Pictures/Screenshots/screenshot_$(date '+%Y-%m-%d %I-%M-%S %p').png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && notify-send -t 3000 -i "$FILE" "Screenshot saved to: $FILE"
 
 # lock
 bindsym $mod+d exec swaylock -C ~/.config/swaylock/config
@@ -330,8 +330,8 @@ client.urgent           $red $red $bg $red $red
 
 
 # default_border  type none if you want no border or replace the none and type pixel 4 if you want a border (choose your favorite number)
-default_border pixel 4
-for_window [floating] border pixel 4
+default_border pixel 3
+for_window [floating] border pixel 3
 for_window [floating] move position center
 # smart_borders on
 
@@ -404,6 +404,48 @@ mode "$mode_power" {
     bindsym Escape mode "default"
 }
 
+# Power Menu
+set $mode_power Power Menu: (s) Shutdown, (r) Reboot, (u) Suspend, (l) Logout
+set $confirm_reboot Reboot - Are you sure? (y) Yes, (n) No
+set $confirm_shutdown Shutdown - Are you sure? (y) Yes, (n) No
+set $confirm_suspend Suspend - Are you sure? (y) Yes, (n) No
+set $confirm_logout Logout - Are you sure? (y) Yes, (n) No
+
+mode "$mode_power" {
+    bindsym s mode "$confirm_shutdown"
+    bindsym r mode "$confirm_reboot"
+    bindsym u mode "$confirm_suspend"
+    bindsym l mode "$confirm_logout"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$confirm_reboot" {
+    bindsym y exec systemctl reboot, mode "default"
+    bindsym n mode "$mode_power"
+    bindsym Escape mode "default"
+}
+
+mode "$confirm_shutdown" {
+    bindsym y exec systemctl poweroff, mode "default"
+    bindsym n mode "$mode_power"
+    bindsym Escape mode "default"
+}
+
+mode "$confirm_suspend" {
+    bindsym y exec systemctl suspend, mode "default"
+    bindsym n mode "$mode_power"
+    bindsym Escape mode "default"
+}
+
+mode "$confirm_logout" {
+    bindsym y exec pkill -KILL -u $USER, mode "default"
+    bindsym n mode "$mode_power"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+e mode "$mode_power"
 
 # autostart
 
@@ -413,8 +455,8 @@ input "INSTANT USB GAMING MOUSE" {
     tap enabled
     natural_scroll disabled
     dwt enabled
-    accel_profile "flat" 
-    pointer_accel 0.1    
+    accel_profile "flat"
+    pointer_accel 0.1
 }
 
 # background
@@ -428,5 +470,22 @@ exec_always --no-startup-id brightnessctl set 25%
 
 # dbus 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 # power profiles
 exec --no-startup-id powerprofilesctl set balanced
+
+# set the qt5ct tool for qt libs
+exec_always "export QT_QPA_PLATFORMTHEME=qt5ct"
+# set cursor theme:
+seat seat0 xcursor_theme Breeze_Light 24
+# orginal cursor size 24 
+# optins >  Bibata-Modern-Amber , breeze_cursors, Breeze_Light, Adwaita
+
+
+# Notes:
+
+# gsettings set org.gnome.desktop.interface font-name 'Sans 14' --> this command use to set font type and size
+# gsettings set org.gnome.desktop.interface icon-theme 'Tokyonight-Dark' --> this command use to set icons theme for GTK apps 
+# gsettings set org.gnome.desktop.interface gtk-theme 'Tokyonight-Dark' --> this command use to set GTK theme 
+
+# exec dbus-update-activation-environment --systemd QT_SCALE_FACTOR=1.5 QT_QPA_PLATFORM=wayland
