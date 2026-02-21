@@ -1,101 +1,137 @@
-/* @import "/home/zaid/.cache/wal/colors-waybar.css"; */
-/* ------------pywl theme------- */
-/* @define-color bg @background; */
-/* @define-color fg @foreground; */
-/* @define-color red @color1; */
-/* @define-color grn @color2; */
-/* @define-color ylw @color3; */
-/* @define-color blu @color4; */
-/* @define-color mag @color5; */
-/* @define-color cyn @color6; */
-/* @define-color brblk @color8; */
-/* ------------custom theme------- */
-
-@define-color bg #1a1b26;
-@define-color fg #a9b1d6;
-@define-color blk #32344a;
-@define-color red #f7768e;
-@define-color grn #9ece6a;
-@define-color ylw #e0af68;
-@define-color blu #55759C;
-@define-color mag #ad8ee6;
-@define-color cyn #0db9d7;
-@define-color brblk #444b6a;
-@define-color white #ffffff;
+@define-color color-bar-bg #1e1e2e;
+@define-color color-bar-fg #cdd6f4;
+@define-color color-bar-underline #11111b;
+@define-color color-bg #1e1e2e;
+@define-color color-fg #cdd6f4;
+@define-color color-button-bg #89b4fa;
+@define-color color-button-fg #11111b;
+@define-color color-button-urgent-bg #f38ba8;
+@define-color color-button-urgent-fg #11111b;
+@define-color color-workspace-button-bg #313244;
+@define-color color-workspace-button-fg #cdd6f4;
+@define-color color-workspace-button-hover-bg #45475a;
+@define-color color-workspace-button-hover-fg #cdd6f4;
+@define-color color-workspace-button-focused-bg #89b4fa;
+@define-color color-workspace-button-focused-fg #11111b;
+@define-color color-widget-audio-bg #f9e2af;
+@define-color color-widget-audio-fg #11111b;
+@define-color color-widget-audio-hover-bg #f9e2af;
+@define-color color-widget-audio-hover-fg #11111b;
+@define-color color-widget-audio-muted-bg #f9e2af;
+@define-color color-widget-audio-muted-fg #11111b;
+@define-color color-widget-clock-bg #bac2de;
+@define-color color-widget-clock-fg #11111b;
+@define-color color-widget-battery-bg #a6e3a1;
+@define-color color-widget-battery-fg #11111b;
+@define-color color-widget-battery-low-bg #f38ba8;
+@define-color color-widget-battery-low-fg #11111b;
+@define-color color-widget-battery-low-blink-bg #f38ba8;
+@define-color color-widget-battery-low-blink-fg #11111b;
+@define-color color-widget-backlight-bg #cba6f7;
+@define-color color-widget-backlight-fg #11111b;
+@define-color color-widget-temperature-bg #94e2d5;
+@define-color color-widget-temperature-fg #11111b;
+@define-color color-widget-temperature-critical-bg #f38ba8;
+@define-color color-widget-temperature-critical-fg #11111b;
+@define-color color-widget-memory-bg #89b4fa;
+@define-color color-widget-memory-fg #11111b;
+@define-color color-widget-cpu-bg #bac2de;
+@define-color color-widget-cpu-fg #11111b;
+@define-color color-widget-power-profile-balanced-bg #cba6f7;
+@define-color color-widget-power-profile-balanced-fg #11111b;
+@define-color color-widget-power-profile-performance-bg #fab387;
+@define-color color-widget-power-profile-performance-fg #11111b;
+@define-color color-widget-power-profile-saver-bg #a6e3a1;
+@define-color color-widget-power-profile-saver-fg #11111b;
+@define-color color-widget-tray-bg #313244;
+@define-color color-widget-tray-needs-attention #f38ba8;
+@define-color color-widget-idle-inhibitor-off-bg #313244;
+@define-color color-widget-idle-inhibitor-off-fg #585b70;
+@define-color color-widget-idle-inhibitor-on-bg #94e2d5;
+@define-color color-widget-idle-inhibitor-on-fg #11111b;
+@define-color color-widget-scratchpad-bg #f38ba8;
+@define-color color-widget-scratchpad-fg #11111b;
+@define-color color-widget-notifications-bg #89b4fa;
+@define-color color-widget-notifications-fg #11111b;
+@define-color color-widget-power-bg #89b4fa;
+@define-color color-widget-power-fg #11111b;
+@define-color color-tooltip-bg #1e1e2e;
+@define-color color-tooltip-fg #cdd6f4;
+@define-color color-gradient-fade #cdd6f4;
+@define-color color-orange #fab387;
+@define-color color-for-all-widget-bg #313244;
+@define-color color-for-all-widget-fg #cdd6f4;
 
 * {
-  border: none;
-  border-radius: 0px;
-  font-family: JetBrainsMono Nerd Font;
+  font-family: "JetBrainsMono Nerd Font Propo", monospace;
+  font-size: 18.5px;
   font-weight: normal;
-  font-size: 20px;
-  min-height: 0;
-
-}
-
-.modules-right {
-  background-color: @bg;
-}
-
-.modules-center {
-  background-color: @bg;
-}
-
-.modules-left {
-  background-color: @bg;
+  border: none;
+  border-radius: 5px;
 }
 
 window#waybar {
-  background-color: @bg;
-  /* border-bottom: 3px solid @blu; */
-  color: @fg;
-  /* transition-property: background-color; */
-  /* transition-duration: .5s; */
-  border-radius: 0;
+  background: linear-gradient(to top, @color-bar-bg, mix(@color-bar-bg, @color-gradient-fade, 0.08));
+  color: @color-bar-fg;
+  border-bottom: 1px solid @color-bar-underline;
+  border-radius: 0px;
+}
+
+window#waybar>* {
+  margin-top: 4px;
+  margin-bottom: 8px;
 }
 
 window#waybar.hidden {
-  opacity: 0;
+  opacity: 0.2;
 }
 
-window#waybar.termite {
-  background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-  background-color: @bg;
+button {
   border: none;
+  background-color: @color-button-bg;
+}
+
+button:hover {
+  background: inherit;
+}
+
+#workspaces {
+  padding: 0;
+  margin: 0;
 }
 
 #workspaces button {
-  padding: 0 0.1em;
-  background-color: transparent;
-  color: @fg;
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
+  transition: none;
+  padding: 0;
+  min-height: 0px;
+  min-width: 37px;
+  margin-left: 4px;
+  background: linear-gradient(to top, @color-workspace-button-bg, mix(@color-workspace-button-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-  background: @bg;
-  color: @fg;
-  box-shadow: inset 0 -3px @bg;
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #workspaces button.focused {
-  background-color: @blu;
-  color: @bg;
-  box-shadow: inset 0 -3px @blu;
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #workspaces button.urgent {
-  background-color: @red;
-  color: @bg;
-  box-shadow: inset 0 -3px @red;
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-button-urgent-bg;
+  /* box-shadow: inset 0 -3px @color-button-urgent-bg; */
 }
 
-#custom-sep,
-/* #custom-clock */
+#mode {
+  background: linear-gradient(to top, @color-bar-bg, mix(@color-bar-bg, @color-gradient-fade, 0.08));
+  color: @color-bar-fg;
+  border-radius: 0px;
+}
+
 #clock,
 #battery,
 #cpu,
@@ -105,33 +141,18 @@ window#waybar.chromium {
 #backlight,
 #network,
 #pulseaudio,
-#power-profiles-daemon,
+#wireplumber,
+#custom-media,
 #tray,
 #mode,
-#keyboard-state,
-
-#custom-sep {
-  padding: 0 2px;
-  margin: 2px 1px;
-  background-color: transparent;
-  color: @brblk;
-  border: none;
-  box-shadow: none;
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#custom-notifications,
+#custom-power,
+#mpd {
+  padding: 0 10px;
 }
-
-#mode {
-  color: @fg;
-  /* background-color: @blu; */
-}
-
-/* #language { */
-/*   padding: 0 4px; */
-/*   margin: 2px 1px; */
-/*   background-color: transparent; */
-/*   color: @fg; */
-/*   border: none; */
-/*   box-shadow: none; */
-/* } */
 
 #window,
 #workspaces {
@@ -146,178 +167,290 @@ window#waybar.chromium {
   margin-right: 0;
 }
 
-#clock {
-  color: @fg;
-  padding: 0px 13px 0px 2px;
-  margin: 2px 0px;
-  min-width: 0px;
+#custom-notifications {
+  background: linear-gradient(to top, @color-widget-notifications-bg, mix(@color-widget-notifications-bg, @color-gradient-fade, 0.25));
+  color: @color-widget-notifications-fg;
+  font-size: 20px;
+  padding-right: 14px;
 }
 
-/* #custom-clock { */
-/*     color: @fg; */
-/*     padding: 0px 9px 0px 2px; */
-/*     margin: 2px 0px; */
-/*     min-width: 0px; */
-/* } */
+#custom-power {
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
+  font-size: 20px;
+  margin-right: 4px;
+}
+
+#custom-power:hover {
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
+}
+
+#clock {
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
+}
+
+#clock:hover {
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
+}
 
 #battery {
-  color: @fg;
-  /* border-bottom: 3px solid @blu; */
-  padding: 0 2px;
-  margin: 2px 0px;
-  min-width: 0px;
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
-#battery.warning {
-  /* border-bottom: 3px solid @ylw; */
-  color: @ylw;
+#battery.charging,
+#battery.plugged {
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
-@keyframes blink {
+@keyframes blink-battery-low {
   to {
-    color: @red;
+    background: linear-gradient(to top, @color-widget-battery-low-blink-bg, mix(@color-widget-battery-low-blink-bg, @color-gradient-fade, 0.25));
+    color: @color-widget-battery-low-blink-fg;
   }
 }
 
 #battery.critical:not(.charging) {
-  /* border-bottom: 3px solid @red; */
-  color: @red;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-button-urgent-bg;
+  /* animation-name: blink-battery-low; */
+  /* animation-duration: 0.5s; */
+  /* animation-timing-function: steps(12); */
+  /* animation-iteration-count: infinite; */
+  /* animation-direction: alternate; */
 }
 
-#battery.charging {
-  /* border-bottom: 3px solid @grn; */
-  color: @fg;
+#battery.warning {
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-orange;
 }
 
-
-#power-profiles-daemon {
-  color: @fg;
+#battery:hover {
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
+#power-profiles-daemon.performance {
+  background: linear-gradient(to top, @color-widget-power-profile-performance-bg, mix(@color-widget-power-profile-performance-bg, @color-gradient-fade, 0.25));
+  color: @color-widget-power-profile-performance-fg;
+}
+
+#power-profiles-daemon.balanced {
+  background: linear-gradient(to top, @color-widget-power-profile-balanced-bg, mix(@color-widget-power-profile-balanced-bg, @color-gradient-fade, 0.25));
+  color: @color-widget-power-profile-balanced-fg;
+}
+
+#power-profiles-daemon.power-saver {
+  background: linear-gradient(to top, @color-widget-power-profile-saver-bg, mix(@color-widget-power-profile-saver-bg, @color-gradient-fade, 0.25));
+  color: @color-widget-power-profile-saver-fg;
+}
+
+label:focus {
+  background-color: #f38ba8;
+}
 
 #cpu {
-  color: @fg;
-  /* border-bottom: 3px solid @blu; */
-
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #memory {
-  color: @fg;
-  /* border-bottom: 3px solid @blu; */
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #disk {
-  color: @fg;
-  /* border-bottom: 3px solid @blu; */
+  background-color: #f38ba8;
 }
 
 #backlight {
-  color: @fg;
-  padding: 0 2px;
-  margin: 2px 1px;
-  min-width: 0px;
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #network {
-  color: @fg;
-  /* border-bottom: 3px solid @blu; */
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #network.disconnected {
-  color: @red;
-  /* border-bottom: 3px solid @red; */
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-button-urgent-bg;
+
+}
+
+#network:hover {
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #pulseaudio {
-  color: @fg;
-  /* border-bottom: 3px solid @blu; */
-  padding: 0 2px;
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #pulseaudio.muted {
-  /* border-bottom: 3px solid @red; */
-  color: @fg;
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
+}
+
+#pulseaudio:hover {
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
+}
+
+#wireplumber {
+  background-color: #f38ba8;
+  color: #a6e3a1;
+}
+
+#wireplumber.muted {
+  background-color: #89b4fa;
 }
 
 #custom-media {
-  color: #ffffff;
+  background-color: #f38ba8;
+  color: #89b4fa;
   min-width: 100px;
 }
 
+#custom-media.custom-spotify {
+  background-color: #a6e3a1;
+}
+
+#custom-media.custom-vlc {
+  background-color: #f38ba8;
+}
+
 #temperature {
-  color: @fg;
-  /* border-bottom: 3px solid @blu; */
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #temperature.critical {
-  color: @red;
-}
-
-#custom-power {
-  color: @fg;
-  font-weight: bold;
-}
-
-#custom-power:hover {
-  color: @red;
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-button-urgent-bg;
 }
 
 #tray {
-  color: @fg;
+  background: linear-gradient(to top, @color-widget-tray-bg, mix(@color-widget-tray-bg, @color-gradient-fade, 0.25));
 }
 
-/* #idle_inhibitor { */
-/*     color: #ffffff; */
-/* } */
-/**/
-/* #idle_inhibitor.activated { */
-/*     color: #ffffff; */
-/* } */
-/**/
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background: linear-gradient(to top, @color-widget-tray-needs-attention, mix(@color-widget-tray-needs-attention, @color-gradient-fade, 0.25));
+}
+
+#idle_inhibitor {
+  background: linear-gradient(to top, @color-widget-idle-inhibitor-off-bg, mix(@color-widget-idle-inhibitor-off-bg, @color-gradient-fade, 0.25));
+  color: @color-widget-idle-inhibitor-off-fg;
+}
+
+#idle_inhibitor.activated {
+  background: linear-gradient(to top, @color-widget-idle-inhibitor-on-bg, mix(@color-widget-idle-inhibitor-on-bg, @color-gradient-fade, 0.25));
+  color: @color-widget-idle-inhibitor-on-fg;
+}
+
 #mpd {
-  color: @fg;
+  background: #f38ba8;
+  color: #89b4fa;
 }
 
 #mpd.disconnected {
-  color: @red;
+  background-color: #a6e3a1;
 }
 
 #mpd.stopped {
-  color: @fg;
+  background-color: #f38ba8;
 }
 
 #mpd.paused {
-  color: @fg;
+  background-color: #f9e2af;
 }
 
 #language {
-  color: @fg;
-  /* border-bottom: 3px solid @blu; */
-  padding: 0 0px;
-  margin: 2px 1px;
-  min-width: 38px;
-  /* or use 55 with 17.5 font size */
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
+  padding: 0 5px;
+  /* margin: 0 5px; */
+  min-width: 40px;
+}
+
+#language:hover {
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #keyboard-state {
-  color: @fg;
-  padding: 0 2px;
-  margin: 2px 0px;
+  background: #89b4fa;
+  color: #f38ba8;
+  padding: 0 0px;
+  margin: 0 5px;
+  min-width: 16px;
 }
 
 #keyboard-state>label {
-  padding: 0 3px;
-  color: @fg;
+  padding: 0 5px;
 }
 
-#window {
-  /* border-bottom: 3px solid @blu; */
-  /* background-color: @blu; */
-  color: @fg;
-  font-style: normal;
+#keyboard-state>label.locked {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+  background: linear-gradient(to top, @color-widget-scratchpad-bg, mix(@color-widget-scratchpad-bg, @color-gradient-fade, 0.25));
+  color: @color-widget-scratchpad-fg;
+}
+
+#scratchpad.empty {
+  background-color: transparent;
+}
+
+#privacy {
+  padding: 0;
+}
+
+#privacy-item {
+  padding: 0 5px;
+  color: #f38ba8;
+}
+
+#privacy-item.screenshare {
+  background-color: #f38ba8;
+}
+
+#privacy-item.audio-in {
+  background-color: #89b4fa;
+}
+
+#privacy-item.audio-out {
+  background-color: #a6e3a1;
+}
+
+tooltip {
+  background-color: @color-tooltip-bg;
+  border: none;
+  border-radius: 5px;
+}
+
+tooltip decoration {
+  box-shadow: none;
+}
+
+tooltip decoration:backdrop {
+  box-shadow: none;
+}
+
+tooltip label {
+  color: @color-tooltip-fg;
+  padding-left: 5px;
+  padding-right: 5px;
 }

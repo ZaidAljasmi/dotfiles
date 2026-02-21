@@ -14,35 +14,35 @@ end
 # prompt
 function fish_prompt
 
-    set_color blue
+    set_color yellow
     if test $PWD = $HOME
         echo -n "~ "
     else
-        set_color blue
+        set_color yellow
         echo -n (prompt_pwd) ""
     end
 
     if command git rev-parse --is-inside-work-tree >/dev/null 2>&1
         set branch (git branch --show-current 2>/dev/null)
         if test -n "$branch"
-            set_color red
+            set_color white
             echo -n "$branch "
         end
     end
 
-    set_color red
+    set_color white
     echo -n "> " # or λ
 end
 
 # fzf extension
 
 eval "$(fzf --fish)"
-# Tokyo Night theme for fzf with transparency:
-set -gx FZF_DEFAULT_OPTS '--color=fg:#a9b1d6,bg:-1,hl:#7aa2f7,fg+:#c8d3ea,bg+:#32344a,hl+:#7aa2f7,info:#449dab,prompt:#449dab,pointer:#7aa2f7,marker:#e0af68,spinner:#ad8ee6,separator:#444b6a,border:#444b6a,header:#787c99 --info=right --prompt="Search: "'
+# Catppuccin-Mocha theme for fzf with transparency:
+set -gx FZF_DEFAULT_OPTS '--color=fg:#cdd6f4,bg:-1,hl:#f38ba8,fg+:#cdd6f4,bg+:#313244,hl+:#f38ba8,info:#cba6f7,prompt:#cba6f7,pointer:#f5e0dc,marker:#f5e0dc,spinner:#f5e0dc,separator:#94e2d5,border:#1E1E2E,header:#f38ba8 --info=right --prompt="Search: "'
 # fzf colors (https://github.com/junegunn/fzf/wiki/Color-schemes) 
 
 # bat tool
-export BAT_THEME="ansi"
+export BAT_THEME="Catppuccin Mocha"
 
 # aliases
 alias mnt="sudo mount /dev/sdb1 ~/usb"
@@ -81,3 +81,7 @@ set -gx PATH $PATH $HOME/.config/emacs/bin
 set -x TERMINAL foot
 # bash ~/.colorscripts/elfman
 # pfetch
+# Themes setup
+fish_config theme choose "Catppuccin Mocha"
+# Starship setup
+# starship init fish | source

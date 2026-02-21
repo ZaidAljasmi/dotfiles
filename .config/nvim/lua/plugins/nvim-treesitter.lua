@@ -27,6 +27,7 @@ return {
       folds = { enable = true }, ---@type lazyvim.TSFeat
       ensure_installed = {
         "bash",
+        "cpp",
         "c",
         "diff",
         "html",

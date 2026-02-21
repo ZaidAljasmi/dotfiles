@@ -3,14 +3,28 @@
 # ---------------------
 
 # Disable loading of the autoconfig file, ensuring manual settings (config.py) take precedence.
-config.load_autoconfig(False)
+# config.load_autoconfig(False)
 
 # Import external modules (necessary for config.source)
 import os
+import sys
+
+sys.path.append(str(config.configdir / "themes"))
 
 # Source the external color scheme file (Tokyonight Dark)
 # Make sure your themes/tokyonight_dark.py file exists and contains the c.colors settings.
-config.source('themes/tokyonight_dark.py')
+# config.source('themes/tokyonight_dark.py')
+
+#       catppuccin-theme
+import catppuccin
+
+# load your autoconfig, use this, if the rest of your config is empty!
+config.load_autoconfig()
+
+# set the flavor you'd like to use
+# valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
+# last argument (optional, default is False): enable the plain look for the menu rows
+catppuccin.setup(c, 'mocha', True)
 
 
 # ---------------------
@@ -28,7 +42,7 @@ config.set('colors.webpage.darkmode.policy.images', 'never')
 
 
 # -----------------
-# 3. FONT SETTINGS 
+# 3. FONT SETTINGS 
 # -----------------
 
 # Define font size and name variables for easy management
@@ -57,4 +71,3 @@ c.fonts.statusbar = f'{font_size} {font_name}'
 # Tabs Font
 c.fonts.tabs.selected = f'bold {font_size} {font_name}'
 c.fonts.tabs.unselected = f'{font_size} {font_name}'
-

@@ -30,4 +30,4 @@ key_forward=Tab
 key_backward=Shift-ISO_Left_Tab
 #
 # # stylesheet
-style=/home/zaid/.config/wofi/themes/tokyonight-dark.css
+style=/home/zaid/.config/wofi/themes/catppuccin-mocha.css

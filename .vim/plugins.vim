@@ -19,6 +19,7 @@ endfunction
 
 " My plugins
 call s:ensure('lervag/vimtex')
+call s:ensure('catppuccin/vim')
 call s:ensure('junegunn/fzf')
 call s:ensure('junegunn/fzf.vim')
 " call s:ensure('tomasiser/vim-code-dark')
@@ -33,6 +34,6 @@ call s:ensure('airblade/vim-gitgutter')
 " call s:ensure('itchyny/lightline.vim')
 " call s:ensure('neoclide/coc.nvim')
 call s:ensure('tpope/vim-dispatch')
-" call s:ensure('mengelbrecht/lightline-bufferline')
+call s:ensure('mengelbrecht/lightline-bufferline')
 call s:ensure('preservim/nerdtree')
 " call s:ensure('Yggdroot/indentLine')
