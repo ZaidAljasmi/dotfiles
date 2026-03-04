@@ -115,9 +115,9 @@ input "type:keyboard" {
 # bindsym Shift+space input * xkb_switch_layout next
 
 # screenshot 
-bindsym $mod+Shift+p exec FILE=~/Pictures/Screenshots/screenshot_$(date '+%Y-%m-%d %I-%M-%S %p').png && grim "$FILE" && wl-copy < "$FILE" && notify-send -t 3000 -i "$FILE" "Screenshot saved to: $FILE"
+bindsym $mod+Shift+p exec FILE=~/Pictures/Screenshots/screenshot_$(date '+%Y-%m-%d %I-%M-%S %p').png && grim "$FILE" && wl-copy < "$FILE" && notify-send -t 3000 -i "$FILE" "Screenshot" "Saved to: $FILE"
 # screenshot with selection
-bindsym $mod+Shift+g exec FILE=~/Pictures/Screenshots/screenshot_$(date '+%Y-%m-%d %I-%M-%S %p').png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && notify-send -t 3000 -i "$FILE" "Screenshot saved to: $FILE"
+bindsym $mod+Shift+g exec FILE=~/Pictures/Screenshots/screenshot_$(date '+%Y-%m-%d %I-%M-%S %p').png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && notify-send -t 3000 -i "$FILE" "Screenshot" "saved to: $FILE"
 
 # lock
 bindsym $mod+d exec swaylock -C ~/.config/swaylock/config
@@ -337,14 +337,16 @@ bindsym Mod1+Shift+right resize grow width 70px
 client.focused           $lavender $base $text  $lavender  $lavender
 client.focused_inactive  $overlay0 $base $text  $overlay0  $overlay0
 client.unfocused         $overlay0 $base $text  $overlay0  $overlay0
-client.urgent            $peach    $base $peach $peach     $peach
+client.urgent            $red      $base $red   $red       $red
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
 # bar
 bar {
 
+  position top
   swaybar_command waybar
+  # status_command while true; do ~/.config/sway/status/status_bar; sleep 1; done
 
   colors {
     background         $base
@@ -495,7 +497,9 @@ input "INSTANT USB GAMING MOUSE" {
 exec_always swaybg -i ~/Pictures/Backgrounds/Cloudsnight.jpg -m fill
 
 # notifications
-exec_always --no-startup-id mako -c ~/.config/mako/config
+# exec_always --no-startup-id mako -c ~/.config/mako/config
+exec swaync --config ~/.config/swaync/config.json --style ~/.config/swaync/style.css
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # brightness
 exec_always --no-startup-id brightnessctl set 25%
@@ -509,7 +513,6 @@ exec --no-startup-id powerprofilesctl set balanced
 # set the qt5ct tool for qt libs
 exec_always "export QT_QPA_PLATFORMTHEME=qt5ct"
 # set cursor theme:
-seat seat0 xcursor_theme Bibata-Modern-Ice 24
 # orginal cursor size 24 
 # optins >  Bibata-Modern-Amber , breeze_cursors, Breeze_Light, Adwaita
 
@@ -518,4 +521,9 @@ seat seat0 xcursor_theme Bibata-Modern-Ice 24
 # gsettings set org.gnome.desktop.interface font-name 'Sans 14' --> this command use to set font type and size
 # gsettings set org.gnome.desktop.interface icon-theme 'Tokyonight-Dark' --> this command use to set icons theme for GTK apps 
 # gsettings set org.gnome.desktop.interface gtk-theme 'Tokyonight-Dark' --> this command use to set GTK theme 
-for_window [title=SwayXcursor] floating enable
+
+# Apps windows settings:
+
+
+for_window [title=SwayXcursor] floating enable, border normal
+seat seat0 xcursor_theme Breeze_Light 24

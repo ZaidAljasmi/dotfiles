@@ -28,10 +28,5 @@
             <property name="label">Logout</property>
         </object>
     </child>
-          <child>
-        <object class="GtkMenuItem" id="lockscreen">
-            <property name="label">LockScreen</property>
-        </object>
-    </child>
   </object>
 </interface>
