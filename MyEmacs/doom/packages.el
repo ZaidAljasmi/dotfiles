@@ -52,3 +52,7 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+(package! catppuccin-theme) ; setup catpuccin theme
+(package! nyan-mode) ; setup nyan cat
+(package! parrot) ;; parrot modelin
+(package! sudo-edit) ;; sudo-edit tool

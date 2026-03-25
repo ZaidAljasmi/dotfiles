@@ -1,0 +1,5 @@
+emacs --version
+exit
+cd
+rm -rf ~/.emacs.d/tree-sitter/*
+exit

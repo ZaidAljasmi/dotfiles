@@ -1,0 +1,148 @@
+(setq gc-cons-threshold (* 100 1024 1024))
+
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 2 1024 1024))))
+
+(setq inhibit-startup-message t)
+(global-hl-line-mode t)
+(scroll-bar-mode -1)        ; Disable visible scrollbar
+(tool-bar-mode -1)          ; Disable the toolbar
+(tooltip-mode -1)           ; Disable tooltips
+(set-fringe-mode 10)        ; Give some breathing room
+(global-display-line-numbers-mode t) ;;Enable numbers
+(menu-bar-mode -1)            ; Disable the menu bar
+
+;; Set up the visible bell
+(setq visible-bell nil)
+
+(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 180)
+
+; (load-theme 'wombat)
+
+;; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;; Initialize package sources
+(require 'package)
+
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
+
+(package-initialize)
+(unless package-archive-contents
+ (package-refresh-contents))
+
+;; Initialize use-package on non-Linux platforms
+(unless (package-installed-p 'use-package)
+   (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+;; Theme setup (catppuccin)
+(use-package catppuccin-theme
+  :ensure t
+  :config
+  (setq catppuccin-flavor 'mocha) ;; latte, frappe, macchiato, mocha
+  (load-theme 'catppuccin :no-confirm))
+
+(use-package command-log-mode)
+
+(use-package doom-themes
+  :ensure t
+  :config
+  (setq doom-themes-treemacs-theme "doom-colors") 
+  (doom-themes-treemacs-config))
+
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-integration t)    
+  (setq evil-want-keybinding nil)   
+  (setq evil-vimpulse-cursor-visual-point t)
+  :config
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+
+(use-package highlight-indent-guides
+  :ensure t
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :config
+  (setq highlight-indent-guides-method 'character) 
+  (setq highlight-indent-guides-responsive 'stack)) 
+
+
+(use-package all-the-icons
+  :ensure t)
+
+(use-package centaur-tabs
+  :ensure t
+  :config
+  (centaur-tabs-mode t)
+  (setq centaur-tabs-style "bar"
+        centaur-tabs-height 28
+        centaur-tabs-set-icons t
+        centaur-tabs-set-bar 'left))
+
+
+(use-package all-the-icons
+  :ensure t)
+
+(use-package treemacs
+  :ensure t
+  :defer t
+  :config
+  (setq treemacs-width 30)
+  (treemacs-follow-mode t))
+
+(use-package treemacs-evil
+  :after (treemacs evil)
+  :ensure t)
+
+(use-package treemacs-all-the-icons
+  :after (treemacs all-the-icons)
+  :ensure t
+  :config
+  (treemacs-load-all-the-icons-theme))
+
+(use-package ivy
+  :diminish
+  :bind (("C-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)	
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1))
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

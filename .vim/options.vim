@@ -31,7 +31,7 @@ set background=dark
 " set cursorcolumn
 set signcolumn=no
 set cursorline
-set colorcolumn=80
+" set colorcolumn=80
 " set noruler
 " set noshowmode
 " let g:netrw_banner = 0

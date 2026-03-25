@@ -1,3 +1,4 @@
+/* @import "/home/zaid/.cache/wal/colors-waybar.css"; */
 @define-color color-bar-bg #1e1e2e;
 /* @define-color color-bar-bg rgba(30, 30, 46, 0.9); */
 @define-color color-bar-fg #cdd6f4;
@@ -250,19 +251,34 @@ button:hover {
   color: @color-for-all-widget-fg;
 }
 
+#power-profiles-daemon.performance:hover {
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
+}
+
 #power-profiles-daemon.performance {
-  background: linear-gradient(to top, @color-widget-power-profile-performance-bg, mix(@color-widget-power-profile-performance-bg, @color-gradient-fade, 0.25));
-  color: @color-widget-power-profile-performance-fg;
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
+}
+
+#power-profiles-daemon.balanced:hover {
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #power-profiles-daemon.balanced {
-  background: linear-gradient(to top, @color-widget-power-profile-balanced-bg, mix(@color-widget-power-profile-balanced-bg, @color-gradient-fade, 0.25));
-  color: @color-widget-power-profile-balanced-fg;
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
+}
+
+#power-profiles-daemon.power-saver:hover {
+  background: linear-gradient(to top, @color-workspace-button-hover-bg, mix(@color-workspace-button-hover-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 #power-profiles-daemon.power-saver {
-  background: linear-gradient(to top, @color-widget-power-profile-saver-bg, mix(@color-widget-power-profile-saver-bg, @color-gradient-fade, 0.25));
-  color: @color-widget-power-profile-saver-fg;
+  background: linear-gradient(to top, @color-for-all-widget-bg, mix(@color-for-all-widget-bg, @color-gradient-fade, 0.25));
+  color: @color-for-all-widget-fg;
 }
 
 label:focus {

@@ -24,7 +24,7 @@
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;; (setq doom-font (font-spec :family "JetBrains Mono Nerd Font" :size 20 :weight 'normal))
-(setq doom-font (font-spec :family "ComicShannsMono Nerd Font" :size 25 :weight 'bold))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 26 :weight 'normal))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -34,7 +34,27 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'catppuccin)
+
+;; Modeline
+
+;; (setq doom-modeline-major-mode-icon t)
+;; (setq doom-modeline-time-icon t)
+;; (display-time-mode 1)
+;; (setq doom-modeline-time-live-icon t)
+;; (setq doom-modeline-time-analogue-clock t)
+
+(use-package! nyan-mode
+  :hook (doom-modeline-mode . nyan-mode)
+  :config
+  (setq nyan-animate-nyancat t
+        nyan-wavy-trail t))
+
+;; (use-package! parrot
+;;   :hook (doom-modeline-mode . parrot-mode)
+;;   :config
+;;   (setq parrot-animate-parrot t)
+;;   (parrot-set-parrot-type 'default))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -76,3 +96,30 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+
+;; LaTeX settings
+
+(after! tex
+  (setq TeX-view-program-selection '((output-pdf "Zathura"))
+        TeX-view-program-list '(("Zathura" "zathura --synctex-forward %n:1:%b %o")))
+
+  (setq +latex-viewers '(zathura)))
+
+;; cursor settings
+(setq-default cursor-type 'box)
+(setq evil-insert-state-cursor  '(bar . 2))
+(setq evil-visual-state-cursor '(box))
+(setq evil-normal-state-cursor '(box))
+(setq evil-replace-state-cursor '(hbar . 2))
+
+(blink-cursor-mode -1)
+
+(add-hook 'evil-insert-state-entry-hook #'blink-cursor-mode)
+(add-hook 'evil-insert-state-exit-hook  (lambda () (blink-cursor-mode -1)))
+
+(add-hook 'evil-replace-state-entry-hook #'blink-cursor-mode)
+(add-hook 'evil-replace-state-exit-hook  (lambda () (blink-cursor-mode -1)))
+
+;; (setq blink-cursor-interval 0.5) ; blinkon/off
+;; (setq blink-cursor-delay 0.9)    ; blinkwait

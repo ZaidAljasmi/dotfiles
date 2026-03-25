@@ -1,0 +1,39 @@
+#!/bin/bash
+
+CONFIG="$HOME/.config/fuzzel/fuzzel.ini"
+
+entries=" Shutdown\n Reboot\n Suspend\n LockScreen\n Logout"
+
+selected=$(printf "$entries" | fuzzel --dmenu --config=$CONFIG --prompt "Power: " --width 40 --lines 5 --line-height=19 --placeholder="")
+
+confirm_exit() {
+  echo -e "Yes\nNo" | fuzzel --dmenu --config=$CONFIG --prompt "$1: Are you sure? " --width 40 --lines 2 --placeholder=""
+}
+
+case $selected in
+*"Shutdown")
+  if [[ $(confirm_exit "Shutdown") == "Yes" ]]; then
+    systemctl poweroff
+  fi
+  ;;
+*"Reboot")
+  if [[ $(confirm_exit "Reboot") == "Yes" ]]; then
+    systemctl reboot
+  fi
+  ;;
+*"Suspend")
+  if [[ $(confirm_exit "Suspend") == "Yes" ]]; then
+    systemctl suspend
+  fi
+  ;;
+*"LockScreen")
+  if [[ $(confirm_exit "LockScreen") == "Yes" ]]; then
+    swaylock
+  fi
+  ;;
+*"Logout")
+  if [[ $(confirm_exit "Logout") == "Yes" ]]; then
+    swaymsg exit
+  fi
+  ;;
+esac

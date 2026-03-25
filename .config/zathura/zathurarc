@@ -3,6 +3,9 @@
 
 # --- General ---
 
+# Font
+set font "JetBrainsMono Nerd Font 18"
+
 # Layout
 set window-title-basename "true"
 set statusbar-h-padding 00
